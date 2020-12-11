@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 1
+  examinee_info: MyText
+  status: false
+  user: one
+
+two:
+  time: 1
+  examinee_info: MyText
+  status: false
+  user: two
