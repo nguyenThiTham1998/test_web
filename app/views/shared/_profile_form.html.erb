@@ -1,0 +1,24 @@
+
+<div class="col-md-6">
+  <%= form_for @profile do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= f.hidden_field :user_id, value: current_user.id %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'user-input', placeholder:"Name"%>
+
+		<%= f.label :date_of_birth%>
+		<%= f.date_field :date_of_birth, class: 'user-input', placeholder:"Date of birth"%>
+
+    	<%= f.label :organization%>
+		<%= f.text_field :organization, class: 'user-input', placeholder:"organization"%>
+
+		<%= f.label :more_detail %>
+		<%= f.text_area :more_detail, class: 'user-input', placeholder:"More details", style:"height: 80px;"%>
+
+
+		<%= f.submit class: "user-input btn btn-success", style:"margin-top:20px"%>
+
+	<% end %>
+</div>
+

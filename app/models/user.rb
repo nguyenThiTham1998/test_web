@@ -4,7 +4,7 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
 	     :recoverable, :rememberable, :validatable
 	has_many :subjects
-	has_many :exams
+	has_one :profile
 
 	def current_user?(user)
 		user && user == self

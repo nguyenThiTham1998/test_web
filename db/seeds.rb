@@ -60,16 +60,28 @@ end
 end
 
 10.times do |n|
+	content = "cau hoi mau-#{n+1}"
 	Question.create!(
-		content: "cau hoi mau",
+		content: content,
 		subject_id: 1
 		)
 end
 
 10.times do |n|
 	question_id = n+1
+	content = "cau tra loi mau-#{n+1}"
 	Answer.create!(
-		content: "cau tra loi mau",
+		content: content,
+		question_id: question_id,
+		true: true
+		)
+end
+
+10.times do |n|
+	question_id = n+1
+	content = "cau tra loi mau-#{n+1}"
+	Answer.create!(
+		content: content,
 		question_id: question_id
 		)
 end

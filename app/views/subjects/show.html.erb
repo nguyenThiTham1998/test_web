@@ -1,23 +1,27 @@
 
 <div class="row">
-    <div class="center jumbotron">
-		<h1><%=@subject.name%></h1>
-		<h2>
-		Time Limit: <%=@subject.time%> min 
-		</h2>
-		<h2>
-		Number of Questions: 
-		</h2>
-		<p>
-		<%=@subject.description%> 
-		</p>
+  
+	<div class="col-md-1"></div>
+	<div class="col-md-10" style="text-align: center;">  
+	  	<p class="page-title" style="margin-top: 8%;"><%=@subject.name%></p class="page-title">
 
-		<p>
-		Questions
-		</p>
-		<hr>
+		<p class="subject-infor">Author: <%=@user.fullname%></p class="page-title">
 
-		<%= link_to "Add question", new_question_path %>
+		<p class="subject-infor">Number of Questions: <%=@number_question%></p class="page-title">
 
+		<p class="subject-infor">Time Limit: <%=@subject.time%> minutes</p>	
+
+		<p class="subject-des" style="font-size: 19px;"><%=@subject.description%></p class="page-title">
+
+		<%if @subject.auto_check? %>
+			<p class="subject-notice">You can see correct answers after completing the test</p class="page-title">
+		<%end%>
+
+		<div class="link-group">
+			<%= link_to "Return To Home Page", root_path, class: "link return"%>
+
+			<%= link_to "Get This Test", new_exam_path(subject_id: @subject.id), class: "link go"%>
+		</div>
+	 
 	</div>
 </div>

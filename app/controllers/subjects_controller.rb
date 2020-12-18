@@ -6,6 +6,8 @@ class SubjectsController < ApplicationController
 	end
 
 	def show
+		@user = User.find_by(id: @subject.user_id)
+		@number_question = @subject.questions.count
 	end
 
 	def create

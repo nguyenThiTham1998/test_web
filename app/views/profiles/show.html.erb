@@ -1,0 +1,19 @@
+
+<p class="page-title">Your Profile</p class="page-title">
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+	<label>Name:</label>
+	<p class="profile-info"><%= @profile.name%></p><br>
+
+	<label>Date of birth:</label>
+	<p class="profile-info"><%= @profile.date_of_birth%></p><br>
+
+	<label>Organization:</label>
+	<p class="profile-info"><%= @profile.organization%></p><br>
+
+	<label>More details:</label> 	
+	<p class="profile-info"><%= @profile.more_detail%></p><br>
+	<%= link_to "Update Your profile", edit_profile_path(@profile.id) %>
+</div>
+

@@ -20,10 +20,10 @@ require("@nathanvda/cocoon")
 //= require jquery
 //= require cocoon
 
-
-import "cocoon";
-import 'bootstrap';
 import 'packs/subject.js';
+import "cocoon";
+
+
 
 
 

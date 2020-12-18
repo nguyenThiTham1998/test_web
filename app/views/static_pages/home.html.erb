@@ -1,26 +1,22 @@
 <div class="category-nav">
-	
-	<div id="myDIV" onscroll="myFunction()">
-		<div class="container">
-		    <ul class="nav navbar-nav">
-		    	<%if @class.nil? %>
-	        		<li class="categoryUnit"><%= link_to "All" , root_path, style:"color: white;", class: "changeColor"%></li>
+	<div id="myDiv">
+	    <ul class="nav navbar-nav">
+	    	<%if @class.nil? %>
+	    		<li class="categoryUnit"><%= link_to "All" , root_path, style:"color: white;", class: "changeColor"%></li>
+	    	<%else%>
+	    		<li class="categoryUnit"><%= link_to "All" , root_path, style:"color: white;"%></li>
+	    	<%end%>
+	      	<% @categories.each do |category|%>
+	      		<%if @class == category.id.to_s %>
+	        		<li class="categoryUnit"><%= link_to category.name , root_path(category_id: category.id), style:"color: white;", class: "changeColor"%></li>
 	        	<%else%>
-	        		<li class="categoryUnit"><%= link_to "All" , root_path, style:"color: white;"%></li>
+	        		<li class="categoryUnit"><%= link_to category.name , root_path(category_id: category.id), style:"color: white;"%></li>
 	        	<%end%>
-		      	<% @categories.each do |category|%>
-		      		<%if @class == category.id.to_s %>
-		        		<li class="categoryUnit"><%= link_to category.name , root_path(category_id: category.id), style:"color: white;", class: "changeColor"%></li>
-		        	<%else%>
-		        		<li class="categoryUnit"><%= link_to category.name , root_path(category_id: category.id), style:"color: white;"%></li>
-		        	<%end%>
-		        <%end%>
-		    </ul>
-		</div>  
+	        <%end%>
+	    </ul>
+		 
 	</div>
-
-
-	<div class="myDIV2">	    
+	<div class="myDiv2">	    
 		<ul class="nav navbar-nav1">
 			<%if !@category.nil? %>
 				<%if @class2.nil? %>
@@ -36,58 +32,35 @@
 	      	<%end%>      	
 		    <%end%>
 			<%else%>
-
   			<% @categories.each do |category|%>
 	      	<b class="category-title"><%=category.name%></b><br>
 	      	<% sub_categories = category.sub_categories%>
 	      	<% sub_categories.each do |sub_category|%>
-		    	<%if @class2 == sub_category.id.to_s %>
+			    	<%if @class2 == sub_category.id.to_s %>
 		      		<li class="subCategoryUnit"><%= link_to sub_category.name , root_path(sub_category_id: sub_category.id, category_id: sub_category.category_id), style:"color: black;", class: "changeColor2"%></li>
 		      	<%else%>
 		      		<li class="subCategoryUnit"><%= link_to sub_category.name , root_path(sub_category_id: sub_category.id, category_id: sub_category.category_id), style:"color: black;" %></li>
-		      	<%end%>
-		      	
-		      <%end%>
-	      <%end%> 
-
+		      	<%end%>	
+			    <%end%>
+		    <%end%> 
 	    <%end%>
 		</ul>    
 	</div>
-
-	<div class="myDIV3" onscroll="myFunction3()">
+	<div class="myDiv3">
 	    <div class="main">
 			<% @subjects.each do |subject|%>
 				<div class="col-sm-6 pr-left">
-					<div class="subject-cell">
-						<p class="subject-name-index"><%= subject.name %></p>	
-						<p class="description"><%= subject.description %></p>
-						<%user = User.find_by(id: subject.user_id)%>	
-						<p class="author-name-index">Author: <%= user.fullname %></p>			
-					</div>
+					<%= link_to subject_path(subject.id) do %>
+					  <div class="subject-cell">
+							<p class="subject-name-index"><%= subject.name %></p>	
+							<p class="description"><%= subject.description %></p>
+							<%user = User.find_by(id: subject.user_id)%>	
+							<p class="author-name-index">Author: <%= user.fullname %></p>	
+						</div>
+					<% end %>
 				</div>
 			<%end%>
 		</div>
 	</div>
-
 </div>
-
-
-		
-	
-
-<script>
-function myFunction() {
-  var elmnt = document.getElementById("myDIV");
-  var x = elmnt.scrollLeft;
-  var y = elmnt.scrollTop;
-}
-
-function myFunction3() {
-  var elmnt = document.getElementById("myDIV3");
-  var x = elmnt.scrollLeft;
-  var y = elmnt.scrollTop;
-}
-
-</script>
-
  
