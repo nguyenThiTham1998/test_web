@@ -1,0 +1,22 @@
+<%= form_for @question do |f| %>
+
+	<%= f.label :content, "question" %>
+	<%= f.text_field :content, class: 'form-control', placeholder:"question content" %>
+
+	<%= f.hidden_field :subject_id, value: 1 %>
+
+  
+	<label>answers</label>
+	<%= f.fields_for :answers do |answer| %>         
+		<%= render 'answer_fields', f: answer %>
+	<% end %>
+    
+           
+    <%= link_to_add_association 'Add', f, :answers, data: {
+      association_insertion_node: '#answers',  
+      association_insertion_method: :append 
+    }, class:"btn" %> <br>
+  
+    <%= f.submit %>
+  
+<% end %>

@@ -1,0 +1,81 @@
+<div class="main-theme">
+	<p class="page-title">New Test</p class="page-title">
+
+	<div class="col-md-2"></div>
+  <div class="col-md-8">
+	  <%= form_for @subject do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :name, "Subject" %>
+			<%= f.text_area :name, class: 'form-control small', placeholder:"Subject name"%>
+
+			<%= f.label :description, "description" %>
+			<%= f.text_area :description, class: 'form-control', placeholder:"Subject description"%>
+
+			<%= f.label :time, "time" %>
+			<%= f.text_area :time, class: 'form-control small', placeholder:"...(min)" %>
+
+			<%= f.label :auto_check %>
+			<%= f.check_box :auto_check %>
+
+			<%= f.label :sub_category_id, "Sub category" %>   
+      <%= f.select :sub_category_id, SubCategory.all.map{|s| [s.name, s.id]}, {}, {class: "js-example-basic-single js-states form-control"}%> 
+			<br>
+
+			<%= f.label :public, "who is allowed to sit this test?" %><br>
+			<select class="select-group" name="subject[public]" id="subject_public">
+				<option value="0" >public</option>
+				<option value="1" >only me</option>
+				<option value="2" >Anyone with the link </option>
+			</select><br>
+
+			<div class="form-popup" id="myForm">
+				<%= f.label :start_at %><br>
+				<%= f.datetime_select :start_at , ampm: true, :include_blank => true, :class => "form-control"%><br>
+
+				<%= f.label :end_at %><br>
+				<%= f.datetime_select :end_at , ampm: true,:include_blank => true, :class => "form-control"%><br>
+
+				<div class="schedule-group">
+					<button type="button" class="btn cancel" onclick="closeForm()" class="close-schedule-form">Close</button>		
+					<%= f.submit "Schedule test", class: "schedule-btn" %>
+				</div>
+
+			</div>
+		  <div class="submit-group">
+				<div class="dropdown">
+					<div class="dropbtn"><img src="https://cdn4.iconfinder.com/data/icons/essential-app-2/16/calendar-book-date-monthly-256.png" class="icon-btn"/>Schedule  </div>
+					<div class="dropdown-content">
+						<a href="#" id="sechedule" onclick="openForm()">
+							Schedule test
+						</a>
+					</div>
+				</div>
+				<%= f.submit "Create now", class: "submit-btn"%>
+			</div>
+
+		<% end %>
+		<hr style="border-top: 1px solid #888888;">
+  </div>
+</div>
+
+
+
+       
+      
+
+<script>	
+	function openForm() {
+	 	document.getElementById("myForm").style.display = "block";
+	}
+
+	function closeForm() {
+	 	document.getElementById("myForm").style.display = "none";
+	}
+
+	$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+
+

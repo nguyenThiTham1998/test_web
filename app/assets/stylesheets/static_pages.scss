@@ -1,0 +1,139 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+div.category-nav{
+	background-color: #424242;
+	border-style: none;
+	height: 55px;
+}
+
+li.categoryUnit{
+	display: inline-block;
+	font-size: 17px;
+}
+
+li.categoryUnit:hover{
+	background-color: black !important;
+}
+
+ul.nav.navbar-nav{
+	width: max-content;
+	background-color: #424242;
+}    
+
+#myDIV {
+  width: 100%;
+  overflow: auto;
+  height: fit-content;
+  overflow-x: scroll;
+}
+
+ul.nav.navbar-nav li.categoryUnit a:hover {
+  background-color: black ;
+}
+
+
+.changeColor {
+ 	background-color: black ;
+}
+
+.changeColor2 {
+ 	background-color: #2EFE64;
+}
+
+
+li.subCategoryUnit a:hover{
+ 	background-color: #2EFE64;
+}
+
+li.subCategoryUnit a {
+ 	border-bottom: 1px solid white;
+ 	border-top: 1px solid white;
+}
+
+p.description{
+	font-size: 12px;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	display: -webkit-box;
+	text-align: center;
+}
+
+div.subject-cell{
+	margin: 10px;
+	background-color: white;
+	border: 1px solid;
+	padding: 10px;
+	box-shadow: 2px 4px 5px #888888;
+	height: 160px;
+}
+
+
+div.subject-cell:hover{
+	box-shadow: 0px 1px 3px #A4A4A4;
+}
+
+p.subject-name-index{
+	text-align: center;
+	font-weight: bold;
+}
+
+p.author-name-index{
+	text-align: center;
+	font-size: 12px;
+	color: gray;
+}
+
+
+ul.nav.navbar-nav1 {
+	margin-top: 20px;
+}
+
+b.category-title{
+	margin-left: 14px;
+	font-family: monospace;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.myDIV2::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.myDIV2 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.myDIV2 {
+  height: 510px;
+  width: 22%;
+  overflow-y: scroll;
+  background-color: #E3F6CE;
+  float: left;
+  box-shadow: 3px 6px 11px #A4A4A4;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.myDIV3::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.myDIV3 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.myDIV3 {
+  height: 510px;
+  width: 78%;
+  overflow-y: scroll;
+  padding: 10px;
+  padding-top: 30px;
+}
+

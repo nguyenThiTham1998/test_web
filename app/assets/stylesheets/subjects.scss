@@ -1,0 +1,250 @@
+// Place all the styles related to the Subjects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: white;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: gray;}
+
+
+
+
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 700px;
+  border: 3px solid black;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+ 
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  
+}
+
+.main-theme{
+  height: 750px;
+  background-color: #E3F6CE;
+}
+
+.page-title {
+  text-align: center;
+  padding-top: 32px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: monospace;
+  padding-top: 20px;
+  margin: 0
+}
+
+label {
+  font-family: monospace;
+  margin-top: 20px;
+}
+
+textarea.form-control {
+  height: 80px;
+}
+
+textarea.form-control.small {
+  height: 34px;
+}
+
+.form-control{
+  border: 1px solid #888888;
+  background-color: #E3F6CE;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+}
+
+.form-control:hover{
+  box-shadow: 0px 2px 3px #888888;
+}
+
+.form-control:focus{
+  box-shadow: 2px 4x 5x #888888;
+  background-color: #E3F6CE;
+}
+
+input#subject_auto_check{
+  margin-left: 33px;
+  border: 1px solid #888888;
+  background-color: #E3F6CE;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+}
+
+.submit-group{
+  padding-left: 588px;
+  margin-top: -20px;
+}
+
+.icon-btn{
+  width: 24px;
+  margin-right: 8px;
+}
+
+.dropbtn{
+  padding: 8px 15px;
+  border: 1px solid #888888;
+  background-color: #E3F6CE;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+}
+
+input.submit-btn{
+  padding: 8px 15px;
+  border: 1px solid #888888;
+  background-color: #2EFE64;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+  height: 42px;
+}
+
+input.submit-btn:hover{
+  box-shadow: 0px 2px 3px #888888;
+  background-color: #088A08;
+}
+
+.select-group{
+  padding: 5px 10px;
+  border: 1px solid #888888;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+  height: 42px;
+  background-color: #E3F6CE;
+  float: left;
+}
+
+.select-group option{
+  background-color: white;
+}
+
+div.form-popup{
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  bottom: 20%;
+  right: 34%;
+}
+
+.schedule-group{
+  margin-top: 20px;
+}
+
+.schedule-btn{
+  padding: 4px 10px;
+  border: 1px solid #888888;
+  background-color: #2EFE64;
+  border-radius: 0px;
+  height: 30px;
+  float: right;
+  border-radius: 5px;
+}
+
+.schedule-btn:hover{
+  background-color: #088A08;
+}
+
+.btn.cancel{
+  padding: 4px 10px;
+  border: 1px solid #888888;
+  border-radius: 0px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.btn.cancel:hover{
+  background-color: #888888;
+}
+
+span.select2-selection.select2-selection--single{
+  border: 1px solid #888888;
+  background-color: #E3F6CE;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+}
+
+span.select2-selection.select2-selection--single:hover{
+  box-shadow: 0px 2px 3px #888888;
+}
+
+span.select2-selection.select2-selection--single:focus{
+  box-shadow: 2px 4x 5x #888888;
+  background-color: #E3F6CE;
+}
