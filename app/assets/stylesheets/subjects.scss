@@ -97,14 +97,8 @@
   
 }
 
-.main-theme{
-  height: 750px;
-  background-color: #E3F6CE;
-}
-
 .page-title {
   text-align: center;
-  padding-top: 32px;
   font-size: 24px;
   font-weight: bold;
   font-family: monospace;
@@ -167,7 +161,7 @@ input#subject_auto_check{
   box-shadow: 2px 4px 5px #888888;
 }
 
-input.submit-btn{
+.submit-btn{
   padding: 8px 15px;
   border: 1px solid #888888;
   background-color: #2EFE64;
@@ -176,7 +170,7 @@ input.submit-btn{
   height: 42px;
 }
 
-input.submit-btn:hover{
+.submit-btn:hover{
   box-shadow: 0px 2px 3px #888888;
   background-color: #088A08;
 }
@@ -191,17 +185,33 @@ input.submit-btn:hover{
   float: left;
 }
 
+.select-group:hover{
+  box-shadow: 1px 2px 3px #888888;
+}
+
 .select-group option{
   background-color: white;
 }
 
 div.form-popup{
-  background-color: white;
-  border: 1px solid black;
-  padding: 20px;
-  bottom: 20%;
-  right: 34%;
-}
+    width: 100%;
+    display: block;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    background-color: rgba(192,192,192,0.3);
+    border-style: none;
+    display:none;
+  }
+
+  .full{
+    width: 50%;
+    height:fit-content;
+    background-color: white;
+    padding: 20px;
+    margin: 80px auto;
+  }
 
 .schedule-group{
   margin-top: 20px;
@@ -247,4 +257,57 @@ span.select2-selection.select2-selection--single:hover{
 span.select2-selection.select2-selection--single:focus{
   box-shadow: 2px 4x 5x #888888;
   background-color: #E3F6CE;
+}
+
+.subject-notice{
+  color: red;
+}
+
+.subject-infor{
+  color: #888888;
+  margin-bottom: 0;
+}
+
+.subject-des{
+  margin-top: 25px;
+}
+
+a.link{
+  padding: 8px 15px;
+  border: 1px solid #888888;
+  background-color: #2EFE64;
+  border-radius: 0px;
+  box-shadow: 2px 4px 5px #888888;
+  height: 42px;
+  color: #1C1C1C;
+  width: 200px;
+  display: inline-block;
+  margin: 10px;
+}
+
+a.link.return{
+  background-color: #E3F6CE;
+}
+
+a.link:hover{
+  box-shadow: 0px 2px 3px #888888;
+  background-color: #088A08;
+}
+
+a.link.return:hover{
+  background-color: #BDBDBD;
+}
+
+a.link:hover{
+  color: #1C1C1C;
+  text-decoration: none
+}
+
+.link-group{
+  margin-top: 40px;
+}
+
+
+div#sechedule{
+  padding: 10px;
 }

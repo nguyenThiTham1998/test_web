@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'profiles/edit'
+  get 'profiles/show'
+  get 'profiles/new'
+  get 'exams/new'
+  get 'exams/edit'
+  get 'exams/show'
+  get 'exams/destroy'
   get 'answers/new'
   get 'answers/edit'
   get 'question/new'
@@ -15,5 +22,7 @@ Rails.application.routes.draw do
   resources :subjects
   resources :questions
   resources :answers
+  resources :exams
+  resources :profiles
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

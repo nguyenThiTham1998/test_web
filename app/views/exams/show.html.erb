@@ -1,0 +1,48 @@
+<p>Exam date: <%= DateTime.now%></p>
+<span>Exam result: </span>
+<span class="result">
+	<%if @exam.checked%>
+		<%= @answers.select{ |a| a.true && (@answer_ids.include? a.id)}.count%>/<%= @questions.count%>
+	<%else%>
+		Uncheck
+	<%end%>
+</span>
+
+<p class="page-title"><%=@subject.name%></p>
+
+<hr style="border-top: 1px solid #888888;">
+
+<div class="col-md-2"></div>
+<div class="col-md-8" style="line-height: 2em;">
+    <% number = 0%>
+    <% @questions.each do |q|%>
+		<%= number = number +1 %>. <label class="question"><%=q.content%></label><br> 	
+	    <% q.answers.each do |answer| %>
+	    	<%if @answer_ids.include? answer.id%>
+	        	<input type="radio", value=answer.id, checked="checked">
+	        <%else%>
+	        	<div class="fake-btn"></div>
+	        <%end%>
+	        <%= answer.content %>
+	        <br>
+	    <% end %>
+	    <%if @exam.checked%>
+		    <% if q.answers.any? { |a| a.true && (@answer_ids.include? a.id)}%>
+				<span class="label label-primary">Correct answer</span>
+			<%else%>
+				<span class="label label-danger">Wrong answer</span>
+			<%end%><br>
+		<%end%>
+    <%end%>
+	<div class="btn btn-success" style="margin: 50px 0;">	
+        <%= link_to "Return to home page", root_path, style: "color: black;"%>
+	</div>
+</div>
+
+<style>
+  input.schedule-btn{
+    padding-bottom: 30px;  
+  }
+
+</style>
+

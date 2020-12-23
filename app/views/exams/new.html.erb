@@ -1,0 +1,155 @@
+<p class="exam-date">Exam date: <%= DateTime.now%></p>
+
+<div class="time-remaining">
+  Time remaining:
+  <p id="countDownCell"></p>
+</div>
+
+<p class="page-title"><%=@subject.name%></p>
+
+<hr style="border-top: 1px solid #888888;">
+
+<div class="col-md-2"></div>
+<div class="col-md-8" style="line-height: 2em;">
+
+  <%= form_for @exam do |f| %>
+    <%if user_signed_in?%>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    <%end%>
+    <%= f.hidden_field :subject_id, value: @subject.id %>
+    <%= f.hidden_field :checked, value: @subject.auto_check %>
+
+    <% number = 0%>
+
+    <% @questions.each do |q|%>
+
+      <%= number = number +1 %>. <label class="question"><%=q.content%></label><br>
+
+      <%= f.fields_for :detail_exams, @detail_exam do |d| %>
+        <% q.answers.each do |answer| %>
+
+          <%= d.radio_button :answer_id, answer.id %>
+          <%= answer.content %>
+          <br>
+        <% end %>
+      <% end %>
+    <%end%>
+
+    <div class="form-popup" id="myFormExameeInfo">
+      <div class="full">
+        <%if @profile.present?%>
+          <%= f.label :examee_name %>
+          <%= f.text_field :examee_name, value: @profile.name, class: 'user-input', placeholder:"Name"%>
+
+          <%= f.label :examee_date_of_birth, "Date of birth"%>
+          <%= f.date_field :examee_date_of_birth, value: @profile.date_of_birth, class: 'user-input', placeholder:"Date of birth"%>
+
+          <%= f.label :examee_organization, "Organization"%>
+          <%= f.text_field :examee_organization, value: @profile.organization, class: 'user-input', placeholder:"organization"%>
+
+          <%= f.label :examee_more_detail, "More Details" %>
+          <%= f.text_area :examee_more_detail, value: @profile.more_detail, class: 'user-input', placeholder:"More details", style:"height: 80px;"%>
+        <%else%>
+          <%= f.label :examee_name %>
+          <%= f.text_field :examee_name, class: 'user-input', placeholder:"Name"%>
+
+          <%= f.label :examee_date_of_birth, "Date of birth"%>
+          <%= f.date_field :examee_date_of_birth, class: 'user-input', placeholder:"Date of birth"%>
+
+          <%= f.label :examee_organization, "Organization"%>
+          <%= f.text_field :examee_organization, class: 'user-input', placeholder:"organization"%>
+
+          <%= f.label :examee_more_detail, "More Details" %>
+          <%= f.text_area :examee_more_detail, class: 'user-input', placeholder:"More details", style:"height: 80px;"%>
+        <%end%>
+
+        <div class="exam-notice">
+          <p id="notice">
+            Are you sure to finish your exam? You can't change your answers after you click submit.
+          </p>
+        </div>
+
+        <div class="schedule-group">
+          <button type="button" class="btn cancel" id="examClose" onclick="closeForm()" , style="height: 37px;">Close</button>
+
+          <button type="button" class="btn cancel" id="examCancel" onclick="closeForm()" , style="height: 37px;">
+             <%= link_to "Cancel", root_path%>  
+          </button>
+
+          <%= f.submit "Submit", class: "schedule-btn" %>
+        </div>
+        <div style="height: 30px;"></div>
+         
+      </div>
+    </div>
+
+
+    <div class="submit-btn" onclick="openForm()" style="width: 150px; text-align: center; margin: 80px auto;">
+      Submit Test
+    </div>
+  <% end %>
+
+</div>
+
+
+
+<script>
+    
+  // Set the date we're counting down to
+  var countDownDate = new Date().setMinutes( new Date().getMinutes() + <%=@subject.time%> );
+         
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="countDownCell"
+
+  if (days == 0) {
+      if (days == 0 && hours == 0) {
+      document.getElementById("countDownCell").innerHTML = minutes + "m " + seconds + "s ";
+      } 
+      else {
+      document.getElementById("countDownCell").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+      } 
+    }  
+  else {
+      document.getElementById("countDownCell").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    }
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("myFormExameeInfo").style.display = "block";
+    document.getElementById("examClose").style.display = "none";
+    document.getElementById("examCancel").style.display = "block";
+    document.getElementById("notice").innerHTML = "TESTING TIME OUT. You can't change your answers now.";
+    document.getElementById("countDownCell").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+function openForm() {
+    document.getElementById("myFormExameeInfo").style.display = "block";
+  }
+
+function closeForm() {
+  document.getElementById("myFormExameeInfo").style.display = "none";
+}
+
+</script>
+
+<style>
+  input.schedule-btn{
+    padding-bottom: 30px;  
+  }
+</style>

@@ -1,0 +1,70 @@
+// Place all the styles related to the Exams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+div.time-remaining{
+	float: right;
+}
+
+p.exam-date{
+	float:left;
+}
+
+p.page-title{
+	clear: both;
+}
+
+.exam-notice{
+	color: red;
+}
+
+#examCancel{
+	display: none;
+	float: left;
+}
+
+#examCancel a{
+	color: black
+}
+
+div.time-remaining{
+	background-color: #F7BE81;
+    padding: 19px;
+    margin: 9px;
+    position: fixed;
+    right: 0;
+    border: 1px solid #A4A4A4;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px #A4A4A4;
+}
+
+#countDownCell{
+	font-size:20px;
+	font-weight: bold;
+}
+
+.cover{
+	position: fixed; 
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+label.question{
+    padding-top: 30px;
+}
+
+.fake-btn{
+    background-color: white;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 50%;
+ }
+
+
+.result{
+	color: red;
+	font-size: 20px;
+	font-weight: bold;
+}

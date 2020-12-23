@@ -59,3 +59,4 @@ gem 'bcrypt'
 gem "cocoon"
 gem 'faker'
 gem "ransack"
+gem "jquery-countdown-rails"

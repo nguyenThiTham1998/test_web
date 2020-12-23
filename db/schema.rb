@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_035755) do
+ActiveRecord::Schema.define(version: 2020_12_21_074916) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -38,12 +38,27 @@ ActiveRecord::Schema.define(version: 2020_12_14_035755) do
 
   create_table "exams", force: :cascade do |t|
     t.integer "time"
-    t.text "examinee_info"
-    t.boolean "status"
+    t.boolean "checked"
+    t.string "examee_name"
+    t.date "examee_date_of_birth"
+    t.string "examee_organization"
+    t.text "examee_more_detail"
+    t.integer "user_id"
+    t.integer "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_exams_on_subject_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.date "date_of_birth"
+    t.string "organization"
+    t.text "more_detail"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_exams_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -95,7 +110,8 @@ ActiveRecord::Schema.define(version: 2020_12_14_035755) do
   add_foreign_key "answers", "questions"
   add_foreign_key "detail_exams", "answers"
   add_foreign_key "detail_exams", "exams"
-  add_foreign_key "exams", "users"
+  add_foreign_key "exams", "subjects"
+  add_foreign_key "profiles", "users"
   add_foreign_key "questions", "subjects"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "subjects", "sub_categories"

@@ -14,7 +14,6 @@ class Subject < ApplicationRecord
     if start_at.present? && start_at < DateTime.now - 1.0/(24*60)
       errors.add(:start_at, "can't be in the past")
     end
-
   end   
 
   def end_at_after_start_at
